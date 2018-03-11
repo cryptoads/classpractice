@@ -169,6 +169,7 @@ class Thief(Character):
         if self.health <= 0:
             print "%s is dead." % self.name
 
+
 class Mirror(Hero):
     def __init__(self):
         self.name = "Mirror hero"
@@ -177,7 +178,7 @@ class Mirror(Hero):
         self.evade = hero.evade
         self.coins = hero.coins
         self.pack = hero.pack
-        self.armor = hero.armor1
+        self.armor = hero.armor
 
 
 class Battle(object):
@@ -337,7 +338,6 @@ class Store(object):
                 item = Store.items[i]
                 print "%d. buy %s (%d)" % (i + 1, item.name, item.cost)
             if len(hero.pack) > 0:
-
 
                 print "9. Use Item"
             print "10. leave"
