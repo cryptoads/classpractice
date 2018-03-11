@@ -35,7 +35,7 @@ class Hero(Character):
         self.name = 'hero'
         self.health = 10
         self.power = 5
-        self.coins = 50
+        self.coins = 40
         self.armor = 0
         self.evade = 0
         self.pack = []
@@ -161,7 +161,7 @@ class Thief(Character):
 
     def receive_damage(self, points):
         if random.randint(0, 100) < 20 and len(hero.pack) > 0:
-            print "The %s stole an item from your pack!"
+            print "The %s stole an item from your pack!" % (self.name)
             del hero.pack[0]
         else:
             self.health -= points
@@ -309,12 +309,11 @@ class Zombieaway(object):
     name = 'Potion of Permanent Death!'
 
     def apply(self, hero):
-        if enemy.isalive == True:
+        if enemy.name == 'Zombie':
             enemy.isalive = False
             print "Throwing the potiona at %s" % (enemy.name)
-
         else:
-            print "Well...that did nothing....your enemy is already dead....really dead...not animated corpse stuff either...just dead!!"
+            print "Well...that did nothing....your enemy is not an animated corpse!!"
 
     def __repr__(self):
         return self.name
